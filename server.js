@@ -25,8 +25,8 @@ app.get("/app/", (req, res, next) => {
 // CREATE a new user (HTTP method POST) at endpoint /app/new/
 app.post("/app/new/", (req, res) => {
 	const stmt = db.prepare("INSERT INTO userinfo (user, pass) VALUES (?, ?)").all();
-	stmt.run(req.body.user, md5(req.body.pass));
-	res.status(201).json(stmt);
+	const info = stmt.run(req.body.user, md5(req.body.pass));
+	res.status(201).json(info);
 })
 // READ a list of all users (HTTP method GET) at endpoint /app/users/
 app.get("/app/users", (req, res) => {	
