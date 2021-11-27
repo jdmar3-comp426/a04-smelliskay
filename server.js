@@ -4,7 +4,7 @@ var app = express()
 // Require database SCRIPT file
 var db = require("./database.js");
 // Require md5 MODULE
-var md5 = require("./node_modules/md5");
+var md5 = require("md5");
 // Make Express use its own built-in body parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
